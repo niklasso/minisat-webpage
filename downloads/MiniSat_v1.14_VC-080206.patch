@@ -1,0 +1,75 @@
+diff -urN MiniSat_v1.14/Global.h MiniSat_v1.14-msvc/Global.h
+--- MiniSat_v1.14/Global.h	2005-07-03 15:45:52.000000000 +0200
++++ MiniSat_v1.14-msvc/Global.h	2005-11-05 10:17:05.000000000 +0100
+@@ -34,11 +34,21 @@
+ 
+ 
+ #ifdef _MSC_VER
+-typedef INT64              int64;
+-typedef UINT64             uint64;
+-typedef INT_PTR            intp;
+-typedef UINT_PTR           uintp;
+-#define I64_fmt "I64d"
++#	define for if(0);else for // for scope
++#	pragma warning(disable:4244) // double -> float
++#	pragma warning(disable:4200) // non-standard array of size zero 
++#	pragma warning(disable:4312) // pointer <-> int
++#	pragma warning(disable:4311)
++#	pragma warning(disable:4267) // size_t -> int
++#	pragma warning(disable:4305) // double -> float conversion
++#	define I64_fmt "I64d"
++
++typedef unsigned uint;
++typedef __int64 int64;
++typedef unsigned __int64 uint64;
++typedef long            intp;
++typedef unsigned long           uintp;
++
+ #else
+ typedef long long          int64;
+ typedef unsigned long long uint64;
+diff -urN MiniSat_v1.14/Main.C MiniSat_v1.14-msvc/Main.C
+--- MiniSat_v1.14/Main.C	2005-07-04 23:42:54.000000000 +0200
++++ MiniSat_v1.14-msvc/Main.C	2005-11-05 10:26:01.000000000 +0100
+@@ -19,11 +19,9 @@
+ 
+ #include "Solver.h"
+ #include <ctime>
+-#include <unistd.h>
+ #include <signal.h>
+ #include <zlib.h>
+ 
+-
+ //=================================================================================================
+ // BCNF Parser:
+ 
+@@ -224,8 +222,9 @@
+     S.verbosity = 1;
+     solver = &S;
+     signal(SIGINT,SIGINT_handler);
++#ifndef _WIN32
+     signal(SIGHUP,SIGINT_handler);
+-
++#endif
+     S.solve();
+     printStats(S.stats);
+     reportf("\n");
+diff -urN MiniSat_v1.14/Solver.h MiniSat_v1.14-msvc/Solver.h
+--- MiniSat_v1.14/Solver.h	2005-10-04 17:31:28.000000000 +0200
++++ MiniSat_v1.14-msvc/Solver.h	2005-11-05 09:57:19.000000000 +0100
+@@ -23,8 +23,14 @@
+ #include "SolverTypes.h"
+ #include "VarOrder.h"
+ 
++
+ // Redfine if you want output to go somewhere else:
+-#define reportf(format, args...) ( printf(format , ## args), fflush(stdout) )
++#ifndef __GNUC__
++#	define reportf printf
++#else
++#	define reportf(format, args...) ( printf(format , ## args), fflush(stdout) )
++#endif
++
+ 
+ 
+ //=================================================================================================

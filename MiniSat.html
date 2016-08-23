@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>MiniSat Page</title>
+  <link rel="stylesheet" href="minisat-page.css">
+  <meta http-equiv="Content-type" content="text/html;charset=iso-8859-1">
+</head>
+<body>
+<div id="logo">
+<img src="minisat-logo.png" alt="MiniSat logo">by Niklas Eén, Niklas Sörensson
+</div>
+
+<!-- Site navigation menu -->
+<div id="navbar">
+  <a href="Main.html">Main</a>
+  <a href="MiniSat.html">MiniSat</a>
+  <a href="MiniSat+.html">MiniSat+</a>
+  <a href="SatELite.html">SatELite</a>
+  <a href="Papers.html">Papers</a>
+  <a href="Authors.html">Authors</a>
+  <a href="Links.html">Links</a>
+</div>
+
+<div id="main">
+
+
+<h1 id="first">MiniSat</h1>
+
+<p>
+<u>MiniSat</u> started out 2003 as an effort to help people get into the SAT community by providing a small,
+yet efficient, SAT solver with good documentation (through the following <a
+href="downloads/MiniSat.pdf">paper</a>). The first version was just above 600 lines, not counting
+comments and empty lines, while still containing all the features of the current state-of-the-art
+solvers in 2003 (conflict-clause recording, conflict-driven backjumping, VSIDS dynamic variable
+order, two-literal watch scheme), and even extensions for incremental SAT and for non-clausal 
+constraints over boolean variables.
+
+<p>In later versions, the code base has grown a bit to emcompass recent improvements, but is still
+quite small and hopefully readable. In the SAT competition 2005, version 1.13 proved
+that <u>MiniSat</u> still is state-of-the-art; at least for publically available solvers.
+
+<p>
+Below we provide a set of different versions of <u>MiniSat</u> to suit the needs of different applications.
+We encourage you to submit bugfixes, extensions and suggestions for improvements, as well
+as basing products on <u>MiniSat</u>. The solver is available under the MIT licence,
+a strictly freer licence than the LGPL, basically allowing you to use the code as you like.
+
+<p>
+<table border=0 cellpadding=5>
+<tr><td colspan=3><b>Source code...</b></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/minisat-2.2.0.tar.gz">minisat-2.2.0.tar.gz</a></td><td>&nbsp;-&nbsp;</td><td>
+
+The first public release after a period of inactivity. Similar in
+performance to the version that won in
+<a href="http://baldur.iti.uka.de/sat-race-2008/">SAT-Race 2008</a>
+but with some clean-ups and minor feature additions. For more info,
+see the <a href="downloads/ReleaseNotes-2.2.0.txt">release notes</a>.
+
+</tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/minisat2-070721.zip">minisat2-070721.zip</a></td><td>&nbsp;-&nbsp;</td><td>
+This is the first release of <u>MiniSat 2</u>, featuring variable
+elimination style simplification natively. It is a cleaned up version
+of the winning entry of <a
+href="http://fmv.jku.at/sat-race-2006/">SAT-Race 2006</a> and is
+intended to subsume <u>SatELite</u> and
+<u>SatELiteGTI</u>. Documentation is scarce at the moment, but feel
+free to send questions to the mailinglist (<a
+href="mailto:minisat@googlegroups.com">minisat@googlegroups.com</a>). </td>
+</tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat_v1.14.2006-Aug-29.src.zip"
+>MiniSat_v1.14_src.zip </a></td> <td>&nbsp;-&nbsp;</td> <td>The
+cleaned-up verison of "v1.13" with the last minute hacks properly
+implemented (e.g. the hack in "simplifyDB()"), and the worst code
+abuse removed. Names and comments have also been improved. It performs
+just as good as the 1.13, but due to the small changes, it may perform
+differently on individual problems.</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat-p_v1.14.2006-Sep-07.src.zip"
+>MiniSat-p_v1.14.src.zip </a></td> <td>&nbsp;-&nbsp;</td>
+<td>Proof-logging version. This is a new feature, but there is a risk
+that it works. To simplify the code a bit, the binary-clause trick in
+the non-proof-logging version has been removed, making it a constant
+10-20% slower. But if you need proof-logging, here it is.</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat-C_v1.14.1.src.zip" >MiniSat-C_v1.14.1.src.zip
+</a></td> <td>&nbsp;-&nbsp;</td> <td>If you despise C++, here is an
+experimental C version by Niklas Sörensson</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat_v1.12b_src.zip" >MiniSat_v1.12b_src.zip
+</a></td> <td>&nbsp;-&nbsp;</td> <td>This version still supports
+non-clausal constraints. The new improved variable order from version
+1.13 is backported to this "b"-version of 1.12.</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/sat2005_submission.zip" >sat2005_submission.zip
+</a></td> <td>&nbsp;-&nbsp;</td> <td>This archive contains the SAT
+2005 competition version. It's hacked up and a bit ugly, but it is
+fast and it works.</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat_v1.14_VC-080206.patch"> MiniSat_v1.14_VC-080206.patch
+</a></td> <td>&nbsp;-&nbsp;</td> <td>A patch for MiniSat v1.14 to
+compile under MS Visual Studio (based on submission by Jean Gressmann).</td>
+</tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat_v1.14_gcc41.patch"> MiniSat_v1.14_gcc41.patch
+</a></td> <td>&nbsp;-&nbsp;</td> <td>A patch to the "friends"
+declaration of "SolverTypes.h" to compile under GCC 4.1 (and probably
+other compilers too) (submitted by Peter Hawkins).</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="http://nemerle.org/svn.fx7/trunk/minisatcs/"> MiniSat_v1.14 for
+C# </a></td> <td>&nbsp;-&nbsp;</td> <td>Link to Michal Moskal's C#
+version of MiniSat.</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href=" http://www.cs.cmu.edu/~flerda/programming/"> MiniSat_v1.14 wrapper
+for OCAML </a></td> <td>&nbsp;-&nbsp;</td> <td>Link to Flavio Lerda Home Page .</td> </tr>
+
+<tr><td colspan=3><b>Pre-compiled binaries...</b></td></tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat_v1.14_linux" >MiniSat_v1.14_linux </a></td>
+<td>&nbsp;-&nbsp;</td> <td>Statically linked Linux binary.</td> </tr>
+
+<tr><td>&nbsp;&nbsp;&nbsp;</td> <td><a
+href="downloads/MiniSat_v1.14_cygwin" >MiniSat_v1.14_cygwin </a></td>
+<td>&nbsp;-&nbsp;</td> <td>Cygwin/Windows binary.</td> </tr>
+
+</table>
+
+</div>
+
+</body>
+</html>
+

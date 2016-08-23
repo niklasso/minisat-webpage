@@ -1,0 +1,125 @@
+body {
+  background-color:      #5b8267;
+  background-image:      url('logictile0.png');
+  background-repeat:     repeat;
+  background-position:   0 0;
+  background-attachment: fixed;
+}
+
+div#navbar {
+  position:        absolute;
+  left:            15px;
+  top:             230px;
+  width:           6em;
+
+  font-family:     "Trebuchet MS", sans-serif;
+  font-weight:     bold;
+  font-size:       120%;
+}
+
+div#navbar a {
+  display:               block;
+  background-color:      #44614d;
+  background-image:      url('logictile1.png');
+  background-repeat:     repeat;
+  background-position:   0 0;
+  background-attachment: fixed;
+  padding:               0.2em;
+  margin-bottom:         0.4em;
+  border:                2px solid #335544;
+  text-decoration:       none 
+}
+
+div#navbar a:link {
+  color: #DEF;
+}
+
+div#navbar a:visited {
+  color: #DEF;
+}
+
+div#navbar a:hover {
+  background-color:      #84a18d;
+  background-image:      url('logictile2.png');
+  background-repeat:     repeat;
+  background-position:   0 0;
+  background-attachment: fixed;
+}
+
+div#main {
+  position:              absolute;
+  left:                  9em;
+  top:                   230px;
+  right:                 15px;
+
+  padding:               10px;
+  border:                1px solid #000000;
+
+  background-color:      #c2c5a5;
+  background-image:      url('logictile3.png');
+  background-repeat:     repeat;
+  background-position:   0 0;
+  background-attachment: fixed;
+
+  font-family:           Georgia, serif;
+}
+
+div#main p {
+  font-size:             13pt;
+  text-align:            justify
+}
+
+div#main h1 { 
+  font-family:           "Trebuchet MS", Arial, sans-serif; 
+  font-weight:           bold;
+  font-variant:          small-caps;
+
+  background-color:      #c6c5bf;
+  background-image:      url('logictile4.png');
+  background-repeat:     repeat;
+  background-position:   0 0;
+  background-attachment: fixed;
+
+  margin-left:           -10px;
+  margin-right:          -10px;
+  margin-top:            0;
+  margin-bottom:         0;
+
+  padding:               10px;
+
+  border-top:            1px solid;
+  border-bottom:         1px solid;
+  border-left:           none;
+  border-right:          none;    
+}
+
+div#main h1#first {
+  border-top:            none;
+  margin-top:            -10px;
+}
+
+div#main u {
+  font-variant:          small-caps;
+  text-decoration:       none;  
+}
+
+div#main address {
+  text-decoration:       none;
+  text-align:            right;
+}
+
+div#main dd {
+  padding-bottom:        1em;
+}
+
+div#author {
+  float:                 left;
+  padding-top:           10px;
+  padding-right:         10px;
+  width:                 389px;
+}
+
+div#main td {
+  vertical-align: top
+}
+ 

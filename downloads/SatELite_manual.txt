@@ -1,0 +1,30 @@
+===============================================================================
+The preprocessor and SAT solver SatELite
+===============================================================================
+
+You can get some help by running "SatELite -h", but it is pretty cryptic:
+
+  SatELite <input CNF> [OUTPUTS: <pre-proc. CNF> [<var.map> [<elim. clauses>]]]
+    options: {+,-}{cs1,csk,ve,s0,s1,s2,r,(de,ud,h1)=ve+,pl,as,all,det, pre,ext,mod}
+        and: --{help,defaults,verbosity=<num>}
+
+In general: '+' turns an option on, '-' turns it off. Type "SatELite
+--defaults" to see the default values. An empty '-' turns everything off (try
+"SatELite - --defaults").
+
+The most important options are:
+
+  +pre   -- Only use the preprocessor. Otherwise SatELite will invoke its
+            built in SAT solver (which is not very good). ALTERNATIVELY:
+            Specify an output file (second argument); this enables '+pre'
+            implicitly.
+
+  +ve+   -- Turn on the more expensive simplifications: "de" definitional
+            elimination, "ud" unit definitions, and "h1" hyper-unary
+            resolution.
+
+If you tie SatELite together with another SAT solver, you can use the extra
+output files for "variable map" and "eliminated clauses". Look at the
+'SatELiteGTI' script for details on this.
+
+// Niklas
